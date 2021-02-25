@@ -80,18 +80,16 @@ public class Nodes {
      * @return a reference to the first element of the chain
      */
     public static <T> Node<T> chainOf(T... elements) {
-        Node<T>[] chain = new Node[elements.length];
-        for (int i = 0; i < chain.length; i++) {
+        Node<T> first = new Node<>();
+        first.element = elements[0];
+        Node<T> next = first;
+        for (int i = 1; i < elements.length; i++) {
             Node<T> node = new Node<>();
             node.element = elements[i];
-            chain[i] = node;
+            next.next = node;
+            next = node;
         }
-
-        for (int i = 0; i < chain.length - 1; i++) {
-            chain[i].next = chain[i + 1];
-        }
-
-        return chain[0];
+        return first;
     }
 
     /**
@@ -104,21 +102,16 @@ public class Nodes {
      * @return a reference to the first element of the chain
      */
     public static <T> Node<T> circleOf(T... elements) {
-        Node<T>[] chain = new Node[elements.length];
-        for (int i = 0; i < chain.length; i++) {
+        Node<T> first = new Node<>();
+        first.element = elements[0];
+        Node<T> next = first;
+        for (int i = 1; i < elements.length; i++) {
             Node<T> node = new Node<>();
             node.element = elements[i];
-            chain[i] = node;
+            next.next = node;
+            next = node;
         }
-
-        for (int i = 0; i < chain.length; i++) {
-            if (i == chain.length - 1) {
-                chain[i].next = chain[0];
-            } else {
-                chain[i].next = chain[i + 1];
-            }
-        }
-
-        return chain[0];
+        next.next = first;
+        return first;
     }
 }

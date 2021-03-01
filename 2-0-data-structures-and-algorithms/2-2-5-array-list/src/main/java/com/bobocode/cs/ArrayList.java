@@ -1,6 +1,4 @@
-package com.bobocode.array_list;
-
-import com.bobocode.linked_list.List;
+package com.bobocode.cs;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

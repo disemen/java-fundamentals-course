@@ -1,7 +1,5 @@
 package com.bobobode.cs;
 
-import com.bobocode.util.ExerciseNotCompletedException;
-
 /**
  * A class that consists of static methods only and provides util methods for {@link Node}.
  */
